@@ -1,1 +1,54 @@
-/* You can add global styles to this file, and also import other style files */
+#main {
+  width: 1000px;
+  height: 500px;
+  border: 1px solid #c3c3c3;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: top;
+}
+
+.type {
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 75px;
+  width: 100px;
+  height: 100px;
+  margin: 10px; 
+  padding: 1px;
+}
+
+.type2 {
+  position: relative;
+  border-style: solid;
+  border-width: 2px;  
+  width: 100px;
+  height: 100px;
+  margin: 10px;   
+  transform: rotate(45deg);
+}
+
+.normal { background-color: Beige;}
+.fighting { background-color: SandyBrown;}
+.flying { background-color: Azure;}
+.poison { background-color: DarkOrchid;}
+.ground { background-color: BurlyWood;}
+.rock { background-color: SaddleBrown;}
+.bug { background-color: YellowGreen;}
+.ghost { background-color: MediumSlateBlue;}
+.steel { background-color: Silver;}
+.fire { background-color: OrangeRed;}
+.water { background-color: RoyalBlue;}
+.grass { background-color: Green;}
+.electric { background-color: Yellow;}
+.psychic { background-color: Violet;}
+.ice { background-color: PowderBlue;}
+.dragon { background-color: DarkMagenta;}
+.dark { background-color: DarkSlateGray;}
+.fairy { background-color: Plum;}
+
+.type p{ color: black; text-align: center}
+
+div.inline {display: inline;}
+div.block {display: block;}
+div.flex {display: flex;}
+div.in_block {display: inline-block;}/* You can add global styles to this file, and also import other style files */

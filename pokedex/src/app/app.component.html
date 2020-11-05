@@ -1,0 +1,26 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page">Pokemons</li>
+  </ol>
+</nav>
+<div class="container">
+  <div class="card list-pokemon">
+    <h5 class="card-header"> Lista Pokemons</h5>
+    <div class="card-body">
+      <table class="table">
+        <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Nome</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let pokemon of pokemons let i= index">
+              <td>{{i+1}}</td>
+              <td>{{pokemon.name}}</td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

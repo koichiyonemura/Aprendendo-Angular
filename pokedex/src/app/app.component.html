@@ -17,7 +17,7 @@
         <tbody>
             <tr *ngFor="let pokemon of pokemons let i= index">
               <td>{{i+1}}</td>
-              <td><a href="/{{pokemon.url}}">{{pokemon.name}}</a></td>                
+              <td><a href="{{pokemon.url}}" target="_blank">{{pokemon.name}}</a></td>                
             </tr>
         </tbody>
       </table>

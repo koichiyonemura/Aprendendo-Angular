@@ -13,6 +13,7 @@ export class AppComponent implements OnInit{
   pokemon = {} as Pokemon;
   pokemons: Pokemon[];
 
+  urlSprite = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/';
   constructor(private pokedexservice: PokedexService){}
 
   ngOnInit(){
@@ -21,7 +22,13 @@ export class AppComponent implements OnInit{
 
   getPokemons(){
     this.pokedexservice.getPokemons().subscribe((pokemons: Pokemon[]) => {
-      this.pokemons = pokemons["results"];
+      //this.pokemons = pokemons;
+      pokemons.forEach( (pokemon, index) => {
+        pokemon.id = index+1;
+        pokemon.name = pokemon.name;
+        pokemon.sprite = this.urlSprite + (index+1) + '.png';
+      });
+      this.pokemons = pokemons
       console.log(pokemons)
     });
   }

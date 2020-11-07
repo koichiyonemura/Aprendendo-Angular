@@ -12,12 +12,14 @@
             <tr>
               <th scope="col">Id</th>
               <th scope="col">Nome</th>
+              <th scope="col">Sprite</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let pokemon of pokemons let i= index">
-              <td>{{i+1}}</td>
-              <td><a href="{{pokemon.url}}" target="_blank">{{pokemon.name}}</a></td>                
+              <td>{{pokemon.id}}</td>
+              <td><a href="{{pokemon.url}}" target="_blank">{{pokemon.name}}</a></td>
+              <td><img src={{pokemon.sprite}}></td>                
             </tr>
         </tbody>
       </table>

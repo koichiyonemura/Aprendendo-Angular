@@ -1,30 +1,133 @@
+:root{
+  --cor_borda : black; 
+  --base_url: url(https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/204.png);
+}
 #main {
   width: 1000px;
   height: 500px;
-  border: 1px solid #c3c3c3;
+  border: 1px solid #c3c3c3;  
+}
+.center{
   display: flex;
   flex-wrap: wrap;
-  align-content: top;
+  align-content: center;  
+  justify-content: center;
+  margin: auto;  
 }
-
-.type {
+.pokecardBackground{
+  width: 300px;
+  height: 300px;  
+  margin: 5px;
   border-style: solid;
-  border-width: 2px;
-  border-radius: 75px;
-  width: 100px;
-  height: 100px;
-  margin: 10px; 
+  border-color: silver;
+  border-width: 2px;  
+  border-radius: 5px 115px 5px 115px;   
+  display: flex;
+  align-items: flex-start;
+  background: rgb(158,119,10);
+  background: radial-gradient(circle, rgba(158,119,10,1) 0%, rgba(255,250,45,1) 100%);
+}
+.pokecard{
+  width: 95%;
+  height: 95%;   
+  margin: auto;
+  border-style: solid;
+  border-color: silver;
+  border-width: 1px;
+  border-radius: 55px 115px 55px 115px; 
+  align-self: center;  
+  background: rgb(242,245,241);
+  background: radial-gradient(circle, rgba(150,255,200,1) 0%, rgba(225,175,225,1) 100%);
+}
+/* .pokecardHeader{  
+  background-color : clear; 
+} */
+.pokecardName{
+  position: relative;
+  background: rgb(255,255,255);
+  background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,239,239,1) 100%);
+  border-style: solid;
+  border-color: silver;  
+  border-radius: 15px 15px 15px 15px; 
+  width: 70%;
+  height: 12%;
+  margin: auto;  
   padding: 1px;
 }
+.pokecardName p{
+  vertical-align: middle;
+  text-align: center;
+  color: gray; 
+  font-weight: bold;
+  letter-spacing: 3px;
+  text-decoration-line: overline underline;
+  text-decoration-style: wavy;
+  text-decoration-color: gold;
+  text-shadow: 2px 2px 5px gold;
+  margin-top: 5px; 
+}
+#pokecardImage{
+  height: 55%;
+  /*--background-color : green;*/   
+}
+/*#cardFooter{  
+  background-color : blue;  
+}*/
+.pokecardFooter p{
+ margin: auto;
+ align-content: center;
+}
+#pokecardImage .lateral{  
+  /*--border-style: solid;
+  --border-width: 1px;*/
+  width: 15%; 
+  height: 100%;  
+}
+#pokecardImage .centro{  
+  /*--border-style: solid;
+  --border-width: 1px;*/
+  width: 70%; 
+  height: 100%;  
+}
+.pokecardHeader, .pokecardName, .pokecardFooter{
+  height: 15%;   
+}
 
-.type2 {
-  position: relative;
+.pokeSprite{  
+  height: 100%;
+  width: 100%;
+}
+.top_left {
+  float: right;
+  text-align: center;  
+  margin-left: 20px;
+  margin-top: 5px;
+}
+.top_right {
+  float: right;
+  margin-right: 5px;
+  margin-top: -5px;
+}
+.bottom_left {
+  float: left;
+  margin-left: 5px;
+  margin-bottom: -5px;
+}
+.bottom_right {
+  float: right;
+  margin-right: 5px;
+  margin-bottom: -5px;
+}
+.type {
   border-style: solid;
-  border-width: 2px;  
-  width: 100px;
-  height: 100px;
-  margin: 10px;   
-  transform: rotate(45deg);
+  border-color: silver; 
+  border-width: 2px;
+  border-radius: 75px;
+  width: 20%;
+  height: 30%;  
+  padding: 5px;
+  margin-left: 10px;
+  position: relative;
 }
 
 .normal { background-color: Beige;}
@@ -37,8 +140,15 @@
 .ghost { background-color: MediumSlateBlue;}
 .steel { background-color: Silver;}
 .fire { background-color: OrangeRed;}
-.water { background-color: RoyalBlue;}
-.grass { background-color: Green;}
+.water { 
+  background: rgb(24,80,246);
+  background: radial-gradient(circle, rgba(24,80,246,1) 0%, rgba(45,236,255,1) 100%);  
+}
+.grass { 
+  background-color: Green;
+  background: rgb(40,129,17);
+  background: radial-gradient(circle, rgba(40,129,17,1) 0%, rgba(12,244,50,1) 100%);
+}
 .electric { background-color: Yellow;}
 .psychic { background-color: Violet;}
 .ice { background-color: PowderBlue;}
@@ -46,9 +156,25 @@
 .dark { background-color: DarkSlateGray;}
 .fairy { background-color: Plum;}
 
-.type p{ color: black; text-align: center}
-
-div.inline {display: inline;}
+.type p{   
+  vertical-align: middle;
+  text-align: center;
+  color: white;  
+  letter-spacing: 2px; 
+  margin: -2px;
+}
+.inline div{display: inline;}
 div.block {display: block;}
-div.flex {display: flex;}
-div.in_block {display: inline-block;}/* You can add global styles to this file, and also import other style files */
+div.flex {display: flex; flex-wrap: wrap;}
+div.in_block {display: inline-block;}
+
+.type:hover {
+  position: relative;
+    
+}
+.type:hover:after {
+  content: var(--base_url); 
+  display: block;
+  position: absolute;
+     
+}

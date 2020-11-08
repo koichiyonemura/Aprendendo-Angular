@@ -11,7 +11,7 @@ import { map, mergeMap } from 'rxjs/operators';
 export class PokedexService {
 
   url = 'https://pokeapi.co/api/v2/pokemon/'; //?offset=0&limit=151
-  urlSprite = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/';
+  urlSprite = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/';  
   
   constructor(private http: HttpClient) { }
 

@@ -27,9 +27,11 @@ export class AppComponent implements OnInit{
         pokemon.id = index+1;
         pokemon.name = pokemon.name;
         pokemon.sprite = this.urlSprite + (index+1) + '.png';
+        pokemon.sprite_shiny = this.urlSprite+'shiny/' + (index+1) + '.png';
       });
       this.pokemons = pokemons
       console.log(pokemons)
     });
-  }
+  }  
+  
 }

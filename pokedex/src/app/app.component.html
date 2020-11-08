@@ -6,23 +6,52 @@
 <div class="container">
   <div class="card list-pokemon">
     <h5 class="card-header"> Lista Pokemons</h5>
-    <div class="card-body">
-      <table class="table">
+    <div class="card-body row center">
+      <!-- <table class="table">
         <thead>
             <tr>
               <th scope="col">Id</th>
               <th scope="col">Nome</th>
-              <th scope="col">Sprite</th>
-            </tr>
+              <th scope="col">Sprite normal</th>
+              <th scope="col">Sprite shiny</th>
+            </tr> 
         </thead>
         <tbody>
             <tr *ngFor="let pokemon of pokemons let i= index">
+            
               <td>{{pokemon.id}}</td>
               <td><a href="{{pokemon.url}}" target="_blank">{{pokemon.name}}</a></td>
-              <td><img src={{pokemon.sprite}}></td>                
+              <td><img src={{pokemon.sprite}} (mouseenter)="toggleShiny({{pokemon.id}},true)" (mouseout)="toggleShiny({{pokemon.id}})"></td>  
+              <td><img id="shiny{{pokemon.id}}" src={{pokemon.sprite_shiny}}></td>  
+              
             </tr>
         </tbody>
-      </table>
+      </table> -->
+      <div *ngFor="let pokemon of pokemons let i= index" class="pokecardBackground ">    
+        <div class="pokecard">   
+          <div class="pokecardHeader">        
+          </div>      
+          <div id="pokecardImage" class="flex">
+            <div class="lateral"></div>
+            <div class="centro">
+              <img src={{pokemon.sprite_shiny}} class="pokeSprite"> 
+            </div>
+            <div class="lateral"></div>        
+          </div>
+          <div class="pokecardName">
+            <p>#{{pokemon.id}} {{pokemon.name}}</p>
+          </div>
+          <div class="pokecardFooter center">
+            <!-- <div class="type fire">
+              <p>fire</p>
+            </div>
+            <div class="type fire">
+              <p></p>
+            </div> -->
+          </div>
+        </div>  
+      </div>
+      
     </div>
   </div>
 </div>

@@ -19,16 +19,31 @@ export class PokedexService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json'})
   }
 
-  getPokemons(): Observable<Pokemon[]> {
+  getPokemons() {
     /*return this.http.get<Pokemon[]>(this.url + '?offset=0&limit=151')
     .pipe(
        retry(2),
        catchError(this.handleError)
     ) */
-    return this.http.get(this.url + '?offset=0&limit=151')
-    .pipe(
-      map(result => result['results'])
-    );
+    return this.http.get(this.url + '?offset=0&limit=151').pipe(
+      map((response: any , index ) => {
+        response = response['results'];
+        //console.log(response);
+        response.forEach((elemento,index) => {
+          var detalhes = this.getDetails(elemento.url);
+          //console.log(detalhes);
+        });
+        return response;
+      }));
+  }
+
+  getDetails(url : string) {
+    return this.http.get(url).pipe(
+     ).subscribe((ret: Pokemon) => {
+        ret = ret['types'];
+        //return ret;
+    });
+    
   }
 
   handleError(error: HttpErrorResponse){

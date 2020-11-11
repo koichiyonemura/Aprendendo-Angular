@@ -3,4 +3,6 @@ export interface Pokemon {
     name:string;
     sprite:string;
     sprite_shiny:string;
+    detalhes : any;
+    url : object;
 }

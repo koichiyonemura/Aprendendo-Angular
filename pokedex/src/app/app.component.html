@@ -27,19 +27,19 @@
             </tr>
         </tbody>
       </table> -->
-      <div *ngFor="let pokemon of pokemons let i= index" class="pokecardBackground ">    
+      <div *ngFor="let pokemon of pokemons let i= index" class="pokecardBackground">    
         <div class="pokecard">   
           <div class="pokecardHeader">        
           </div>      
           <div id="pokecardImage" class="flex">
             <div class="lateral"></div>
             <div class="centro">
-              <img src={{pokemon.sprite_shiny}} class="pokeSprite"> 
+              <img src={{pokemon.sprite}} class="pokeSprite"> 
             </div>
             <div class="lateral"></div>        
           </div>
           <div class="pokecardName">
-            <p>#{{pokemon.id}} {{pokemon.name}}</p>
+            <p>#{{pokemon.id}} {{pokemon.name | titlecase}}</p>
           </div>
           <div class="pokecardFooter center">
             <!-- <div class="type fire">

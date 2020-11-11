@@ -31,19 +31,23 @@ export class PokedexService {
         //console.log(response);
         response.forEach((elemento,index) => {
           var detalhes = this.getDetails(elemento.url);
-          //console.log(detalhes);
+          ///response[index] = console.log(detalhes);
         });
         return response;
       }));
   }
 
   getDetails(url : string) {
+    /*var dados = this.http.get(url).pipe().subscribe((ret: Pokemon) => {
+      return ret;
+    }); */
     return this.http.get(url).pipe(
-     ).subscribe((ret: Pokemon) => {
-        ret = ret['types'];
-        //return ret;
-    });
-    
+      map((response:any , index) => {
+        return response;
+      })
+    );
+
+    //return detalhes;
   }
 
   handleError(error: HttpErrorResponse){

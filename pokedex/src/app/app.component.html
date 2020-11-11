@@ -37,10 +37,13 @@
               <img src={{pokemon.sprite}} class="pokeSprite"> 
             </div>
             <div class="lateral"></div>        
-          </div>
+          </div> 
           <div class="pokecardName">
             <p>#{{pokemon.id}} {{pokemon.name | titlecase}}</p>
-          </div>
+            <p *ngIf="!pokemon.type2">{{pokemon.type1 | titlecase}}</p>
+            <p *ngIf="pokemon.type2">{{pokemon.type1 | titlecase}} / {{pokemon.type2 | titlecase}}</p>
+            
+            
           <div class="pokecardFooter center">
             <!-- <div class="type fire">
               <p>fire</p>

@@ -40,8 +40,10 @@
           </div> 
           <div class="pokecardName">
             <p>#{{pokemon.id}} {{pokemon.name | titlecase}}</p>
-            <p *ngIf="!pokemon.type2">{{pokemon.type1 | titlecase}}</p>
-            <p *ngIf="pokemon.type2">{{pokemon.type1 | titlecase}} / {{pokemon.type2 | titlecase}}</p>
+          <div>
+            <p ngClass="{{pokemon.type1}}" style="float:left">{{pokemon.type1 | titlecase}}</p>
+            <p ngClass="{{pokemon.type2}}" style="float:right">{{pokemon.type2 | titlecase}}</p>
+          </div>  
             
             
           <div class="pokecardFooter center">

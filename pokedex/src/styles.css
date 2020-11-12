@@ -24,8 +24,8 @@
   /*border-radius: 5px 115px 5px 115px;   */
   display: flex;
   align-items: flex-start;
-  background: rgb(182, 151, 66);
-  background: radial-gradient(circle, rgba(158,119,10,1) 0%, rgba(255,250,45,1) 100%);
+  /*background: rgb(182, 151, 66);*/
+ /*background: radial-gradient(circle, rgba(158,119,10,1) 0%, rgba(255,250,45,1) 100%);*/
 }
 .pokecard{
   width: 95%;
@@ -37,7 +37,7 @@
   /*border-radius: 55px 115px 55px 115px; */
   align-self: center;  
   background: rgb(242,245,241);
-  background: radial-gradient(circle, rgba(150,255,200,1) 0%, rgba(225,175,225,1) 100%);
+  /*background: radial-gradient(circle, rgba(150,255,200,1) 0%, rgba(225,175,225,1) 100%);*/
 }
 /* .pokecardHeader{  
   background-color : clear; 

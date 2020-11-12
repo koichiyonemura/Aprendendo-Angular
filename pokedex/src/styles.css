@@ -123,8 +123,8 @@
   border-color: silver; 
   border-width: 2px;
   border-radius: 75px;
-  width: 20%;
-  height: 30%;  
+  width: 30px;
+  height: 30px;  
   padding: 5px;
   margin-left: 10px;
   position: relative;
@@ -149,7 +149,7 @@
   background: rgb(40,129,17);
   background: radial-gradient(circle, rgba(40,129,17,1) 0%, rgba(12,244,50,1) 100%);
 }
-.electric { background-color: Yellow;}
+.electric { background-color: Yellow; alt: 'Electric';}
 .psychic { background-color: Violet;}
 .ice { background-color: PowderBlue;}
 .dragon { background-color: DarkMagenta;}
@@ -163,7 +163,7 @@
   letter-spacing: 2px; 
   margin: -2px;
 }
-.inline div{display: inline;}
+div.inline {display: inline;}
 div.block {display: block;}
 div.flex {display: flex; flex-wrap: wrap;}
 div.in_block {display: inline-block;}
@@ -172,9 +172,13 @@ div.in_block {display: inline-block;}
   position: relative;
     
 }
-.type:hover:after {
+/* .type:hover:after {
   content: var(--base_url); 
-  display: block;
-  position: absolute;
-     
+  display: flex;       
+} */
+
+#tipos{
+  display: flex; flex-wrap: wrap;
+  margin: 15px;
+  padding: 1px;   
 }

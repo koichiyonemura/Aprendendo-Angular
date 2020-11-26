@@ -4,17 +4,19 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-
+//import { tipos } from './models/tipo';
 @NgModule({
   declarations: [
-    AppComponent
+     AppComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+   // { provide: 'TIPOS', useValue: tipos }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

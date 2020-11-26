@@ -39,9 +39,10 @@
   background: rgb(242,245,241);
   /*background: radial-gradient(circle, rgba(150,255,200,1) 0%, rgba(225,175,225,1) 100%);*/
 }
-/* .pokecardHeader{  
-  background-color : clear; 
-} */
+.pokecardHeader{  
+  height: 20%;
+  margin-top: 5px;
+} 
 .pokecardName{
   position: relative;
   background: rgb(255,255,255);
@@ -67,7 +68,7 @@
   margin-top: 5px; 
 }
 #pokecardImage{
-  height: 55%;
+  height: 60%;
   /*--background-color : green;*/   
 }
 /*#cardFooter{  
@@ -89,7 +90,7 @@
   width: 70%; 
   height: 100%;  
 }
-.pokecardHeader, .pokecardName, .pokecardFooter{
+.pokecardName, .pokecardFooter{
   height: 15%;   
 }
 
@@ -127,6 +128,7 @@
   height: 30px;  
   padding: 5px;
   margin-left: 10px;
+  margin-top: 5px;
   position: relative;
 }
 

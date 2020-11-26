@@ -1,0 +1,20 @@
+export const tipos = [
+    {name: "grass", classIcon: "fas fa-leaf"},
+    {name: "bug"  , classIcon: "fas fa-bug"},
+    {name: "dark", classIcon: "fas fa-moon"},
+    {name: "poison", classIcon: "fas fa-skull-crossbones"},
+    {name: "ice", classIcon: "fas fa-snowflake"},
+    {name: "dragon", classIcon: "fas fa-dragon"},
+    {name: "fairy", classIcon: "fas fa-stroopwafel"},
+    {name: "water", classIcon: "fas fa-tint"},
+    {name: "electric", classIcon: "fas fa-bolt"},
+    {name: "steel", classIcon: "fas fa-magnet"},
+    {name: "ground", classIcon: "fas fa-layer-group"},
+    {name: "rock", classIcon: "fas fa-dice-d20"},
+    {name: "flying", classIcon: "fas fa-feather-alt"},
+    {name: "normal", classIcon: "fas fa-certificate"},
+    {name: "fighting", classIcon: "fas fa-fist-raised"},
+    {name: "psychic", classIcon: "fas fa-eye"},
+    {name: "ghost", classIcon: "fas fa-ghost"},
+    {name: "fire", classIcon: "fas fa-fire-alt"}
+  ];

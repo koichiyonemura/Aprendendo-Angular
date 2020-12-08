@@ -7,4 +7,5 @@ export interface Pokemon {
     url : any;
     type1 : any;
     type2 : any;
+    show:any;
 }

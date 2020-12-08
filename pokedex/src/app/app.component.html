@@ -30,21 +30,27 @@
     <div class="type center ghost"><i class="fas fa-ghost"></i></div>
     <div class="type center fire"><i class="fas fa-fire-alt"></i></div>     -->
   </div>
-  <div class="card list-pokemon">
-    <h5 class="card-header"> Lista Pokemons</h5>
+  <div class="card list-pokemon row " >
+    <h5 class="card-header text-title text-title" > Lista Pokemons
+      
+        <div *ngFor="let filtro of filters" ngClass="icon-filtered type center {{filtro}}">
+          <i ngClass="{{getClassIcon(filtro)}} "></i>
+        </div>
+    </h5>  
     <div class="card-body row center">      
-      <div *ngFor="let pokemon of pokemons let i= index" class="pokecardBackground" 
-        [style.display]="( (filter =='') ||(pokemon.type1 == filter) || ((pokemon.type2) && (pokemon.type2 == filter)) ) ? 'flex'  : 'none'">    
+      <!--<div *ngFor="let pokemon of pokemons let i= index" class="pokecardBackground" 
+      [style.display]="( (filter =='') ||(pokemon.type1 == filter) || ((pokemon.type2) && (pokemon.type2 == filter)) ) ? 'flex'  : 'none'">    -->
+      <div *ngFor ="let pokemon of pokemons let i= index" class="pokecardBackground"
+      [style.display]="((pokemon.show) == 'Y') ? 'flex'  : 'none'"> 
         <div class="pokecard">   
           <div class="pokecardHeader">
-            
+
             <div *ngIf="pokemon.type1" ngClass="type center {{pokemon.type1}}">
               <i ngClass="{{getClassIcon(pokemon.type1)}}"></i>
             </div>
             <div *ngIf="pokemon.type2" ngClass="type center {{pokemon.type2}}">
               <i ngClass="{{getClassIcon(pokemon.type2)}}"></i>
             </div>
-
             <!-- Substituido todo o trecho comentado abaixo pelo bloco acima. -->
             <!-- <div *ngIf="pokemon.type1=='grass'">
               <div  class="type center grass"><i class="fas fa-leaf"></i></div>

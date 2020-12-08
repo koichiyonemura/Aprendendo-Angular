@@ -3,6 +3,7 @@ import { PokedexService } from './pokedex.service';
 import { tipos } from './models/tipo';
 import { NgForm } from '@angular/forms';
 import { Component, OnInit, Inject } from '@angular/core';
+import { analyzeAndValidateNgModules } from '@angular/compiler';
 /*
  */
 @Component({
@@ -11,12 +12,17 @@ import { Component, OnInit, Inject } from '@angular/core';
   styleUrls: ['./app.component.css'],
   template: '{{tipos | json}}'
 })
+
+
 export class AppComponent implements OnInit{
   pokemon = {} as Pokemon;
   pokemons: Pokemon[];  
   tipos = tipos;
+ 
+
   urlSprite = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/';
   filter = '';
+  filters = [];
   constructor(private pokedexservice: PokedexService){
     console.log(tipos);
   }
@@ -33,6 +39,7 @@ export class AppComponent implements OnInit{
         pokemon.name = pokemon.name;
         pokemon.sprite = this.urlSprite + (index+1) + '.png';
         pokemon.sprite_shiny = this.urlSprite+'shiny/' + (index+1) + '.png';
+        pokemon.show = 'Y';
         var dados = this.pokedexservice.getDetails(pokemon.url).subscribe(val => {
           //console.log(val);
           pokemon.detalhes = val;
@@ -44,6 +51,7 @@ export class AppComponent implements OnInit{
       });     
       this.pokemons = pokemons
       console.log(pokemons)
+      
     });
   } 
  
@@ -55,8 +63,58 @@ export class AppComponent implements OnInit{
 
   //Seta o filtro de tipo
   setFilter(tipo){
-    //console.log('Filtro solicitado = '+ tipo);
-    this.filter = (this.filter == tipo) ? '' : tipo; //Se for o mesmo tipo selecionado, zera o filtro, tipo um toggle   
+    
+    //this.filter = tipo
+    this.filter = (this.filter == tipo) ? '': tipo; //Se for o mesmo tipo selecionado, zera o filtro, tipo um toggle   
+    if(this.filters.length > 0){
+      var index = this.filters.indexOf(tipo)
+      if(index > -1){
+          this.filters.splice(index,1)
+      }
+      else{
+          this.filters.push(tipo);
+      }
+    }
+    else{
+      this.filters.push(tipo);
+    }
+
+    this.displayFilteredPokemon();
+
   }
-  
+
+  displayFilteredPokemon(){
+    
+    if(this.filters.length < 1 ){
+      this.pokemons.forEach((pokemon,index) => {
+        pokemon.show = 'Y';
+      });
+    }
+    else if (this.filters.length == 1){
+      var elemento1 = this.filters[0];
+      this.pokemons.forEach((pokemon,index) => {
+        if(pokemon.type1 == elemento1 || pokemon.type2 == elemento1){
+          pokemon.show = 'Y';
+        }
+        else{
+          pokemon.show = 'N';
+        }
+      });
+    }
+    else{
+      var elemento1 = this.filters[0];
+      var elemento2 = this.filters[1];
+      this.pokemons.forEach((pokemon,index) => {
+        if((pokemon.type1 == elemento1 && pokemon.type2 == elemento2) ||  
+           (pokemon.type1 == elemento2 && pokemon.type2 == elemento1)
+          ){
+          pokemon.show = 'Y';
+        }
+        else{
+          pokemon.show = 'N';
+        }
+      });
+    }
+    console.log(this.pokemons);
+  }
 }

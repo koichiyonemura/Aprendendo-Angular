@@ -163,8 +163,9 @@
           </div>      
           <div id="pokecardImage" class="flex">
             <div class="lateral"></div>
-            <div class="centro">
-              <img src={{pokemon.sprite}} class="pokeSprite"> 
+            <div class="centro content_img">
+              <img src={{pokemon.sprite}} class="pokeSprite" (click)="displayShinySprite(pokemon)">
+              <div> {{do_change == true ? 'See common version.':'See shiny version.'}}</div>
             </div>
             <div class="lateral"></div>        
           </div> 

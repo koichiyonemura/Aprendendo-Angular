@@ -4,6 +4,7 @@ import { tipos } from './models/tipo';
 import { NgForm } from '@angular/forms';
 import { Component, OnInit, Inject } from '@angular/core';
 import { analyzeAndValidateNgModules } from '@angular/compiler';
+import { isUndefined } from 'util';
 /*
  */
 @Component({
@@ -18,6 +19,7 @@ export class AppComponent implements OnInit{
   pokemon = {} as Pokemon;
   pokemons: Pokemon[];  
   tipos = tipos;
+  do_change;
  
 
   urlSprite = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/';
@@ -38,6 +40,7 @@ export class AppComponent implements OnInit{
         pokemon.id = index+1;
         pokemon.name = pokemon.name;
         pokemon.sprite = this.urlSprite + (index+1) + '.png';
+        pokemon.sprite_commom = this.urlSprite + (index+1) + '.png';
         pokemon.sprite_shiny = this.urlSprite+'shiny/' + (index+1) + '.png';
         pokemon.show = 'Y';
         var dados = this.pokedexservice.getDetails(pokemon.url).subscribe(val => {
@@ -117,4 +120,17 @@ export class AppComponent implements OnInit{
     }
     console.log(this.pokemons);
   }
-}
+
+  displayShinySprite(pokemon){
+    
+    if(pokemon.sprite == pokemon.sprite_commom){
+      pokemon.sprite = pokemon.sprite_shiny;
+      this.do_change = true;
+    }
+    else{
+      pokemon.sprite = pokemon.sprite_commom;
+      this.do_change = false;
+    }
+    //this.pokemon = pokemon;
+  } 
+} 

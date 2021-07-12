@@ -37,6 +37,7 @@
   /*border-radius: 55px 115px 55px 115px; */
   align-self: center;  
   background: rgb(242,245,241);
+  position:relative;
   /*background: radial-gradient(circle, rgba(150,255,200,1) 0%, rgba(225,175,225,1) 100%);*/
 }
 .pokecardHeader{  

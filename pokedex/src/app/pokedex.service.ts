@@ -25,7 +25,7 @@ export class PokedexService {
        retry(2),
        catchError(this.handleError)
     ) */
-    return this.http.get(this.url + '?offset=0&limit=151').pipe(
+    return this.http.get(this.url + '?offset=0&limit=251').pipe(
       map((response: any , index ) => {
         response = response['results'];
         //console.log(response);

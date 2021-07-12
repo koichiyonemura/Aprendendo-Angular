@@ -44,13 +44,24 @@
       [style.display]="((pokemon.show) == 'Y') ? 'flex'  : 'none'"> 
         <div class="pokecard">   
           <div class="pokecardHeader">
-
-            <div *ngIf="pokemon.type1" ngClass="type center {{pokemon.type1}}">
-              <i ngClass="{{getClassIcon(pokemon.type1)}}"></i>
+            <div class="first type_container">
+              <div class="" *ngIf="pokemon.type1" ngClass="type center {{pokemon.type1}}" (click)="displayShinySprite(pokemon)"> 
+                <i ngClass="{{getClassIcon(pokemon.type1)}}"></i>
+              </div>  
+              <div class="inline" (click)="displayShinySprite(pokemon)">
+                  <!--<div class="texthover">{{pokemon.do_change == true ? 'See common version.':'See shiny version.'}}</div> -->
+                <div id="staricon">
+                  <span class="fa fa-star shinyicon"></span>  
+                </div>
+                <!--<div id="onhoverstar">{{pokemon.do_change == true ? 'Normal.':'Shiny.'}}</div> -->
+              </div>
+            </div> 
+            <div class="second">
+              <div class="" *ngIf="pokemon.type2" ngClass="type center {{pokemon.type2}}">
+                <i ngClass="{{getClassIcon(pokemon.type2)}}"></i>
+              </div>
             </div>
-            <div *ngIf="pokemon.type2" ngClass="type center {{pokemon.type2}}">
-              <i ngClass="{{getClassIcon(pokemon.type2)}}"></i>
-            </div>
+            
             <!-- Substituido todo o trecho comentado abaixo pelo bloco acima. -->
             <!-- <div *ngIf="pokemon.type1=='grass'">
               <div  class="type center grass"><i class="fas fa-leaf"></i></div>
@@ -163,9 +174,8 @@
           </div>      
           <div id="pokecardImage" class="flex">
             <div class="lateral"></div>
-            <div class="centro content_img">
-              <img src={{pokemon.sprite}} class="pokeSprite" (click)="displayShinySprite(pokemon)">
-              <div> {{do_change == true ? 'See common version.':'See shiny version.'}}</div>
+            <div class="centro"> 
+              <img src={{pokemon.sprite}} class="pokeSprite">
             </div>
             <div class="lateral"></div>        
           </div> 

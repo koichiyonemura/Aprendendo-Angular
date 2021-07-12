@@ -5,8 +5,9 @@ import { NgForm } from '@angular/forms';
 import { Component, OnInit, Inject } from '@angular/core';
 import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { isUndefined } from 'util';
+//import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 /*
- */
+ */ 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -26,7 +27,7 @@ export class AppComponent implements OnInit{
   filter = '';
   filters = [];
   constructor(private pokedexservice: PokedexService){
-    console.log(tipos);
+    
   }
 
   ngOnInit(){
@@ -43,6 +44,7 @@ export class AppComponent implements OnInit{
         pokemon.sprite_commom = this.urlSprite + (index+1) + '.png';
         pokemon.sprite_shiny = this.urlSprite+'shiny/' + (index+1) + '.png';
         pokemon.show = 'Y';
+        pokemon.do_change = false;
         var dados = this.pokedexservice.getDetails(pokemon.url).subscribe(val => {
           //console.log(val);
           pokemon.detalhes = val;
@@ -53,7 +55,7 @@ export class AppComponent implements OnInit{
         //console.log(dados);
       });     
       this.pokemons = pokemons
-      console.log(pokemons)
+      //console.log(pokemons)
       
     });
   } 
@@ -66,21 +68,27 @@ export class AppComponent implements OnInit{
 
   //Seta o filtro de tipo
   setFilter(tipo){
-    
     //this.filter = tipo
     this.filter = (this.filter == tipo) ? '': tipo; //Se for o mesmo tipo selecionado, zera o filtro, tipo um toggle   
-    if(this.filters.length > 0){
+    if(this.filters.length == 0){
+      this.filters.push(tipo);
+    }
+    else if(this.filters.length == 1 ){   
+        var index = this.filters.indexOf(tipo)
+        if(index > -1){
+            this.filters.splice(index,1)
+        }
+        else{
+            this.filters.push(tipo);
+        }
+    }
+    else if(this.filters.length == 2){
       var index = this.filters.indexOf(tipo)
       if(index > -1){
           this.filters.splice(index,1)
       }
-      else{
-          this.filters.push(tipo);
-      }
     }
-    else{
-      this.filters.push(tipo);
-    }
+    
 
     this.displayFilteredPokemon();
 
@@ -118,19 +126,18 @@ export class AppComponent implements OnInit{
         }
       });
     }
-    console.log(this.pokemons);
   }
 
   displayShinySprite(pokemon){
     
     if(pokemon.sprite == pokemon.sprite_commom){
       pokemon.sprite = pokemon.sprite_shiny;
-      this.do_change = true;
+      pokemon.do_change = true;
     }
     else{
       pokemon.sprite = pokemon.sprite_commom;
-      this.do_change = false;
+      pokemon.do_change = false;
     }
-    //this.pokemon = pokemon;
+    this.pokemon = pokemon;
   } 
 } 

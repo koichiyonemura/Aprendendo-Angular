@@ -9,4 +9,5 @@ export interface Pokemon {
     type1 : any;
     type2 : any;
     show:any;
+    do_change: any;
 }
